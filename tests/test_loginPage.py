@@ -19,7 +19,7 @@ def test_login_tothestorewebsite(playwright: Playwright, login_details):
     page.locator("#loginFrm_password").fill(login_details['password'])
     page.get_by_role("button", name=" Login").click()
     expect(page.get_by_role("heading", name="My Account")).to_be_visible()
-
+    # closing browser
     context.close()
     browser.close()
 
