@@ -1,4 +1,7 @@
 import pytest
+import os
+import sys
+from playwright.sync_api import Page, Playwright
 
 
 def pytest_addoption(parser):
@@ -16,7 +19,7 @@ def user_credentials(request):
 
 
 @pytest.fixture
-def browserInstance(playwright, request):
+def browserInstance(playwright: Playwright, request):
     browser_name = request.config.getoption("browser_name")
     url_name = request.config.getoption("url_name")
     if browser_name == "chrome":
