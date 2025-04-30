@@ -31,7 +31,11 @@ class Helper:
             print(f'Heading "{heading_text}" not found. Check page content and selector.')
             raise  error
 
-    def select_optionbytext_from_dropdown(self, element_locator:str, option: str):
+    def select_optionby_text_from_dropdown(self, element_locator:str, option: str):
         dropdown = self.page.locator(f'{element_locator}')
         dropdown.select_option(label=f'{option}')
+
+    def convert_stringto_float(self, str_value: str, num_of_decimal_point = 2) -> float:
+        return round(float(str_value),num_of_decimal_point)
+
 
